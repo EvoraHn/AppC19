@@ -5,8 +5,9 @@ import
 from "react-native";
 
 import {Form,Item,Container,Header,Input, Icon, Button, Text,
-    Body,Footer, Left,Title, Right,Col, Row, Grid
-
+    Body,Footer, Left,Title, Right,Col, Row, Grid,Content,Card,
+    CardItem,
+    H1
 }
 from "native-base"
 
@@ -80,20 +81,73 @@ const Home = () => {
             </Right>
         </Header>
         <Body>
-            <Text>Hello Covid</Text>
+            <Text style={styles.Titulo} >Hello!</Text>
+            <H1>Covid</H1>
+           
+                <Item>
+                    <Input placeholder="Buscar" />
+                    <Icon name="search" />
+                </Item>
+
+           
             
-          <Item>
-            <Input placeholder="Search" />
-            <Icon name="ios-search" />
-            
-          </Item>
+          
           <Grid>
                 <Col>
                     <Row style Row>
-                        <Text>IMAGEN 1</Text><Text>IMAGEN 2</Text><Icon name='menu' />
+                        
+                        <Content>
+                            
+                            <Card>
+                                <CardItem>
+                                <Body>
+                                    
+                                    <Text>
+                                        First place
+                                    </Text>
+                                    
+                                </Body>
+                                </CardItem>
+                            </Card>
+                        </Content>
+
+                        <Content>
+                            <Card>
+                                <CardItem>
+                                <Body>
+                                    <Text>
+                                        Second place
+                                    </Text>
+                                </Body>
+                                </CardItem>
+                            </Card>
+                        </Content>
+
                     </Row>
                     <Row>
-                        <Text>IMAGEN 1</Text><Text>IMAGEN 2</Text>
+                        <Content>
+                            <Card>
+                                <CardItem>
+                                <Body>
+                                    <Text>
+                                        third place
+                                    </Text>
+                                </Body>
+                                </CardItem>
+                            </Card>
+                        </Content>
+
+                        <Content>
+                            <Card>
+                                <CardItem>
+                                <Body>
+                                    <Text>
+                                        four place
+                                    </Text>
+                                </Body>
+                                </CardItem>
+                            </Card>
+                        </Content>
                     </Row>
                 </Col>
             </Grid>
@@ -113,7 +167,8 @@ const Home = () => {
   
 
 const styles = StyleSheet.create({
-     container: {
+
+    container: {
         flex:1,
         justifyContent:"center",
         alignItems:"center",
@@ -121,21 +176,23 @@ const styles = StyleSheet.create({
     logoApp: {
         width: width,
         height: height * 0.15,
-        resizeMode: "contain"
-      },
-    Row:
-    {
+        resizeMode: "contain",
+        
+    },
+    Row:{
         width: width*0.60,
         height: height*0.60,
         resizeMode: "contain",
-        margin: width*0.50
-
-
-
+        //margin: width*0.50
     },
     Grid:{
         alignItems:"center",
+    },
+    Titulo:{
+        fontSize: 100,
+        color: '#333333'
     }
+
 
 
 

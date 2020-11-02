@@ -24,3 +24,10 @@ para instalarlo navega hasta la carpeta donde clonaste el proyecto
 ejemplo Cd desktop/Proyect/AppC19
 
 e ingresa el comando: Expo install axios
+
+--React - Navigation
+para instalarlo navega hasta la carpeta donde clonaste el proyecto
+
+ejemplo Cd desktop/Proyect/AppC19
+
+e ingresa el comando: Expo install react-navigation
