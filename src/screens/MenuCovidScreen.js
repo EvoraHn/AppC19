@@ -1,6 +1,6 @@
 //Importar las librerias necesarias
 import React, { useState } from "react";
-import { StyleSheet, Text }  from "react-native"; //variable que antiene los esstilos
+import { StyleSheet, Text }  from "react-native"; //variable que antiene los estilos
 
 
 //Variable que va renderizar en pantalla
