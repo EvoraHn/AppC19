@@ -2,6 +2,7 @@ import React from "react";
  //enlaces a las paginas o pantallas
 import Home from "./src/screens/Home";
 import About from "./src/screens/about";
+import Splash from "./src/screens/splash";
 //import { NavigationContainer } from "@react-navigation/native";
 //import { createStackNavigator } from "@react-navigation/stack";
 
@@ -13,7 +14,7 @@ import About from "./src/screens/about";
 function App() 
 {
   //return (<Home></Home>)
- return(<About></About>)
+ return(<Splash></Splash>)
 }
 export default App;
 /*
@@ -28,3 +29,4 @@ export default App;
   </NavigationContainer>
   
 )*/
+//"react-navigation": "^4.4.3"

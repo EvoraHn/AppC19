@@ -1,10 +1,11 @@
 import React
 from "react";
+
 import {StyleSheet,View,FlatList,Image,Dimensions} 
 from "react-native";
 import {Form,Item,Container,Header,Input, Icon, Button, Text,
     Body,Footer, Left,Title, Right,Col, Row, Grid,Content,Card,
-    CardItem,
+    CardItem,Thumbnail,
     H1}
 from "native-base"
 import{useFonts,Raleway_200ExtraLight}
@@ -26,13 +27,32 @@ const Home = () => {
     }
     return (
         
-        <Container style={styles.container}>
+        <Container >
             <Header transparent>
                 <Button rounded  iconLeft light transparent style={styles.button}>
                     <Icon name='arrow-back' />
                     <Text>Atrás</Text>
                 </Button>
-            </Header>      
+            </Header>
+
+            <Content >
+          <Card transparent>
+            
+            <CardItem cardBody>
+            
+              <Image source={require('../img/logo.png')} style={styles.img} />
+            </CardItem>
+            <CardItem>
+               
+                <Body>
+                    <Button transparent>
+                    <Text>App Hello! Covid are a app for show the word status in this pandemic</Text>
+                    </Button>
+                </Body>
+              
+            </CardItem>
+          </Card>
+        </Content>      
       </Container>
 
    
@@ -65,6 +85,9 @@ const styles = StyleSheet.create({
         alignItems:"center",
         borderRadius: 35,
         backgroundColor: 'yellow',
+        width: width,
+        height: height * .60,
+        resizeMode: "contain",
 
     },
     text:{
