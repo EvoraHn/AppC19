@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@expo-google-fonts/raleway": "^0.1.0",
     "axios": "^0.21.0",
     "dotenv": "^8.2.0",
     "expo": "~39.0.2",

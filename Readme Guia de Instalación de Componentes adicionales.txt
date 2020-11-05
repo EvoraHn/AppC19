@@ -31,3 +31,12 @@ para instalarlo navega hasta la carpeta donde clonaste el proyecto
 ejemplo Cd desktop/Proyect/AppC19
 
 e ingresa el comando: Expo install react-navigation
+
+
+chatjs para graficos "libreria"
+react native chart kit
+expo fonts pero con use efects antes de renderizar (tomar en cuenta)
+
+npm es la mejor opción para componentes
+
+
