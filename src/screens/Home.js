@@ -31,9 +31,6 @@ const Home = () => {
     return (
 
     <Container style= {styles.container}>
-        
-        <Header transparent/>
-            
                 <Button transparent style={styles.menu} >
                     <Icon name='menu' />
                 </Button>
@@ -43,24 +40,29 @@ const Home = () => {
         <Body>
             <Text style={styles.title} >Hello!</Text>
             <H1 style={styles.subtitle}>Covid</H1>
-                    <Item style={styles.searchbar} >
-                        <Input placeholder="Buscar" />
-                        <Icon name="search" />
-                    </Item>
+
+
+                
+                                
+                                            <Item style={styles.searchbar}>
+                                                <Input placeholder="Buscar" />
+                                                <Icon name="search" />
+                                            </Item>
+                                        
+                
+                    
           <Grid>
                 <Col>
-                    <Row style Row>
-                        
+                    <Row > 
                         <Content  >
                             
-                            <Card style={styles.link}>
+                            <Card transparent>
                                 <CardItem style={styles.link} >
                                 <Body >
                                     
                                     <Text >
-                                        First place , in this place we will put the information
-                                         from regions, an image with rounded border and a letter 
-                                         , the letter are the first from region
+                                        fourth place, asdashdashduidhcduiudiscnduchnudicyidscsdcsdcsdcsdcdscsdcdsc
+                                        First place 
                                     </Text>
                                     
                                 </Body>
@@ -69,7 +71,7 @@ const Home = () => {
                         </Content>
 
                         <Content >
-                            <Card style={styles.link}>
+                            <Card transparent>
                                 <CardItem style={styles.link}>
                                 <Body>
                                     <Text>
@@ -86,7 +88,7 @@ const Home = () => {
                         
                         <Content  >
                             
-                            <Card style={styles.link}>
+                            <Card transparent>
                                 <CardItem style={styles.link} >
                                 <Body >
                                     
@@ -100,11 +102,11 @@ const Home = () => {
                         </Content>
 
                         <Content >
-                            <Card style={styles.link}>
+                            <Card transparent>
                                 <CardItem style={styles.link}>
                                 <Body>
                                     <Text>
-                                        fourth place
+                                        fourth place, asdashdashduidhcduiudiscnduchnudicyidscsdcsdcsdcsdcdscsdcdsc
                                     </Text>
                                 </Body>
                                 </CardItem>
@@ -117,9 +119,9 @@ const Home = () => {
             </Grid>
         
         </Body>
-        <Footer transparent>
+        <Footer transparent/>
 
-        </Footer>
+        
  
     </Container>
       );
@@ -175,15 +177,16 @@ const styles = StyleSheet.create({
         height:50,
     },
     searchbar:{
-        marginLeft:50,
-        marginRight:50,
-        marginBottom:5,
-        marginTop:5,
-        borderRadius:35,
-        borderColor: 'black',
+        height:30,
+        marginRight:40,
+        marginLeft:40,
+        //backgroundColor:'red',
+        borderRadius:20,
+        //borderColor:'purple',
 
     },
     link:{
+        resizeMode:'cover',
         marginLeft:10,
         marginRight:10,
         marginBottom:5,
@@ -195,3 +198,23 @@ const styles = StyleSheet.create({
 
 });
 export default Home;
+/*
+<Grid >
+                    <Col >
+                        <Row >
+                            <Content >
+                                <Card transparent>
+                                    <CardItem >
+                                        <Body >
+                                            <Item>
+                                                <Input placeholder="Buscar" />
+                                                <Icon name="search" />
+                                            </Item>
+                                        </Body>
+                                    </CardItem>
+                                </Card>
+                            </Content>
+                        </Row>
+                    </Col>
+                </Grid>
+                */

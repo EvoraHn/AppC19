@@ -25,11 +25,8 @@ const Splash = () => {
     return (
         
         <Container style={styles.container} >
-            
-            
             <Content >
                 <Card transparent >
-                    
                     <CardItem cardBody >
                         <Image source={require('../img/logo.png')} style={styles.img} />
                     </CardItem>

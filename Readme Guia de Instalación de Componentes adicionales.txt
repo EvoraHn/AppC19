@@ -30,7 +30,13 @@ para instalarlo navega hasta la carpeta donde clonaste el proyecto
 
 ejemplo Cd desktop/Proyect/AppC19
 
-e ingresa el comando: Expo install react-navigation
+e ingresa el comando: npm install @react-navigation/native
+
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+tipo de navegación en pilas
+	npm install @react-navigation/stack
+
 
 
 chatjs para graficos "libreria"
@@ -38,5 +44,6 @@ react native chart kit
 expo fonts pero con use efects antes de renderizar (tomar en cuenta)
 
 npm es la mejor opción para componentes
+
 
 
