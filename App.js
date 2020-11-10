@@ -3,6 +3,7 @@ import React from "react";
 import Home from "./src/screens/Home";
 import About from "./src/screens/about";
 import Splash from "./src/screens/splash";
+import America from "./src/screens/America";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -14,8 +15,11 @@ const Stack = createStackNavigator();
 export default function App() {
   return(
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Pantalla Principal" component={Home}/>
+      <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen name="Home" component={Home}/>
+        <Stack.Screen name="About" component={About}/>
+        <Stack.Screen name="Splash" component={Splash}/>
+        <Stack.Screen name="America" component={America}/>
       </Stack.Navigator>
     </NavigationContainer>
      )

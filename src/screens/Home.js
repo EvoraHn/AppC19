@@ -1,6 +1,5 @@
 
 import React from "react";
-import { connectStyle } from 'native-base';
 import
     {StyleSheet,View,FlatList,Image,Dimensions} 
 from "react-native";
@@ -17,7 +16,7 @@ import { AppLoading } from "expo";
 //Obtener los valores por destructuring
 const { width, height } = Dimensions.get("window");
 
-const Home = () => {
+const Home = ({navigation}) => {
     let [fontsLoaded,error] = useFonts({
         Raleway_200ExtraLight,
         "FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
@@ -31,22 +30,25 @@ const Home = () => {
     return (
 
     <Container style= {styles.container}>
-                <Button transparent style={styles.menu} >
+                <Button transparent style={styles.menu} onPress={()=> {navigation.navigate("About")}} >
                     <Icon name='menu' />
                 </Button>
             
             
         
         <Body>
-            <Text style={styles.title} >Hello!</Text>
-            <H1 style={styles.subtitle}>Covid</H1>
+            <Text style={styles.title} onPress={()=> {navigation.navigate("About")}}>Hello!</Text>
+            <H1 style={styles.subtitle} onPress={()=> {navigation.navigate("About")}}>Covid</H1>
 
 
                 
                                 
                                             <Item style={styles.searchbar}>
                                                 <Input placeholder="Buscar" />
-                                                <Icon name="search" />
+                                                <Button style={styles.magnifyinGlass}>
+                                                    <Icon name="search" /> 
+                                                </Button>
+                                                
                                             </Item>
                                         
                 
@@ -57,10 +59,10 @@ const Home = () => {
                         <Content  >
                             
                             <Card transparent>
-                                <CardItem style={styles.link} >
+                                <CardItem style={styles.link}  >
                                 <Body >
                                     
-                                    <Text >
+                                    <Text onPress={()=> {navigation.navigate("America")}}>
                                         fourth place, asdashdashduidhcduiudiscnduchnudicyidscsdcsdcsdcsdcdscsdcdsc
                                         First place 
                                     </Text>
@@ -85,9 +87,7 @@ const Home = () => {
                     </Row>
 
                     <Row style Row>
-                        
                         <Content  >
-                            
                             <Card transparent>
                                 <CardItem style={styles.link} >
                                 <Body >
@@ -102,10 +102,10 @@ const Home = () => {
                         </Content>
 
                         <Content >
-                            <Card transparent>
-                                <CardItem style={styles.link}>
-                                <Body>
-                                    <Text>
+                            <Card transparent >
+                                <CardItem style={styles.link}  >
+                                <Body >
+                                    <Text >
                                         fourth place, asdashdashduidhcduiudiscnduchnudicyidscsdcsdcsdcsdcdscsdcdsc
                                     </Text>
                                 </Body>
@@ -177,6 +177,7 @@ const styles = StyleSheet.create({
         height:50,
     },
     searchbar:{
+        marginBottom:20,
         height:30,
         marginRight:40,
         marginLeft:40,
@@ -194,7 +195,14 @@ const styles = StyleSheet.create({
         borderRadius: 20,
         backgroundColor:'red',
         
+    },
+    magnifyinGlass:{
+        borderRadius:19,
+        backgroundColor:'purple',
+        color:'white',
+
     }
+
 
 });
 export default Home;

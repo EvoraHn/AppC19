@@ -12,6 +12,7 @@ import{useFonts,Raleway_200ExtraLight}
 from "@expo-google-fonts/raleway";
 import { AppLoading } 
 from "expo";
+import { version } from "react";
 
 //Obtener los valores por destructuring altura y ancho
 const { width, height } = Dimensions.get("window");
@@ -27,29 +28,25 @@ const Home = () => {
     }
     return (
         
-        <Container >
+        <Container style= {styles.container} >
             <Header transparent>
-                <Button rounded  iconLeft light transparent style={styles.button}>
-                    <Icon name='arrow-back' />
-                    <Text>Atrás</Text>
-                </Button>
+                
             </Header>
 
             <Content >
-          <Card transparent>
+          <Card >
             
-            <CardItem cardBody>
-            
+            <CardItem cardBody >
               <Image source={require('../img/logo.png')} style={styles.img} />
             </CardItem>
-            <CardItem>
-               
+            <CardItem >
+
                 <Body>
-                    <Button transparent>
-                    <Text>App Hello! Covid are a app for show the word status in this pandemic</Text>
-                    </Button>
+                    <Text style={styles.version} >Version 1.0 </Text>
+                    
+                    <Text style={styles.text}>App Hello! Covid are a app for show the word status in this pandemic</Text>
+           
                 </Body>
-              
             </CardItem>
           </Card>
         </Content>      
@@ -63,12 +60,11 @@ const Home = () => {
 const styles = StyleSheet.create({
 
     container: {
-        flex:1,
+        //flex:1,
         justifyContent:"center",
         alignItems:"center",
         borderRadius: 35,
-        backgroundColor: 'red',
-        
+        backgroundColor: 'green',
     },
     logoApp: {
         width: width,
@@ -81,17 +77,31 @@ const styles = StyleSheet.create({
         backgroundColor: 'green',
     },
     img:{
+        marginLeft: 40,
+        marginRight: 40,
         justifyContent:"center",
         alignItems:"center",
         borderRadius: 35,
         backgroundColor: 'yellow',
-        width: width,
-        height: height * .60,
+        width: width * .80,
+        height: height * .50,
         resizeMode: "contain",
 
     },
     text:{
-
+        marginTop:20,
+        marginRight:40,
+        marginLeft:40,
+        //marginLeft:width*.25,
+        //fontFamily: "FredokaOne-Regular",
+        fontSize:10,
+    },
+    version:{
+        marginTop:40,
+        //marginRight:width*.40,
+        marginLeft:width*.25,
+        fontFamily: "FredokaOne-Regular",
+        fontSize:30,
     }
 
     
