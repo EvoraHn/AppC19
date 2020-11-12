@@ -16,10 +16,10 @@ export default function App() {
   return(
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home}/>
-        <Stack.Screen name="About" component={About}/>
-        <Stack.Screen name="Splash" component={Splash}/>
-        <Stack.Screen name="America" component={America}/>
+        <Stack.Screen name="Home" component={Home} options={{headerShown:false}}/>
+        <Stack.Screen name="About" component={About} options={{headerShown:false}}/>
+        <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/>
+        <Stack.Screen name="America" component={America} options={{headerShown:false}}/>
       </Stack.Navigator>
     </NavigationContainer>
      )
