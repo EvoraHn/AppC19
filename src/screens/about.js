@@ -201,7 +201,7 @@ import { version } from "react";
 //Obtener los valores por destructuring altura y ancho
 const { width, height } = Dimensions.get("window");
 
-const About = () => {
+const About = ({navigation}) => {
     //fuentes de origen externo
     let [fontsLoaded,error] = useFonts({
         Raleway_200ExtraLight,
@@ -220,9 +220,11 @@ const About = () => {
                             <Card transparent >
                                 <CardItem style={styles.card}>
                                     <Body style={{alignItems:"center"}}>
-                                        <Text>
-                                            America
-                                        </Text>
+                                        <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
+                                            <Button transparent onPress={()=> {navigation.navigate("America")}}>
+                                                <Image source={require('../img/america.png')} transparent style={styles.linkImage} />
+                                            </Button>
+                                        </CardItem>
                                     </Body>
                                 </CardItem>
                             </Card>
@@ -231,9 +233,24 @@ const About = () => {
                             <Card transparent>
                                 <CardItem style={styles.card}>
                                     <Body style={{alignItems:"center"}}>
-                                        <Text>
-                                            Asia
-                                        </Text>
+                                        <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
+                                            <Button transparent onPress={()=> {navigation.navigate("America")}}>
+                                                <Image source={require('../img/Asia.png')} transparent style={styles.linkImage} />
+                                            </Button>
+                                        </CardItem>
+                                    </Body>
+                                </CardItem>
+                            </Card>
+                        </Content>
+                        <Content >
+                            <Card transparent>
+                                <CardItem style={styles.card}>
+                                    <Body style={{alignItems:"center"}}>
+                                        <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
+                                            <Button transparent onPress={()=> {navigation.navigate("America")}}>
+                                                <Image source={require('../img/Europa.png')} transparent style={styles.linkImage} />
+                                            </Button>
+                                        </CardItem>
                                     </Body>
                                 </CardItem>
                             </Card>
@@ -242,20 +259,11 @@ const About = () => {
                             <Card transparent>
                                 <CardItem style={styles.card}>
                                     <Body style={{alignItems:"center"}}>
-                                        <Text>
-                                            Europa
-                                        </Text>
-                                    </Body>
-                                </CardItem>
-                            </Card>
-                        </Content>
-                        <Content>
-                            <Card transparent>
-                                <CardItem style={styles.card}>
-                                    <Body style={{alignItems:"center"}}>
-                                        <Text>
-                                            Mundo
-                                        </Text>
+                                        <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
+                                            <Button transparent onPress={()=> {navigation.navigate("America")}}>
+                                                <Image source={require('../img/Mundo.png')} transparent style={styles.linkImage} />
+                                            </Button>
+                                        </CardItem>
                                     </Body>
                                 </CardItem>
                             </Card>
@@ -334,81 +342,83 @@ const styles = StyleSheet.create({
         fontFamily: "FredokaOne-Regular",
         fontSize:30,
     },
-        container: {
-            flex:10,
-            justifyContent:"center",
-            //alignItems:"center",
-            borderRadius: 35,
-            backgroundColor:'white',
-        },
-        containerPrincipal: {
-            flex:1,
-            paddingTop:height*0.03,
-            //justifyContent:"center",
-            //alignItems:"center",
-            backgroundColor:'#7800B8',
-        },
-        card:{
-            justifyContent:"center",
-            alignItems:"center",
-            //backgroundColor:'#80FFDB',
-            borderRadius:20,
-            //borderColor:'#7800B8',
+    container: {
+        flex:10,
+        justifyContent:"center",
+        //alignItems:"center",
+        borderRadius: 35,
+        backgroundColor:'white',
+    },
+    containerPrincipal: {
+        flex:1,
+        paddingTop:height*0.03,
+        //justifyContent:"center",
+        //alignItems:"center",
+        backgroundColor:'#7800B8',
+    },
+    card:{
+        justifyContent:"center",
+        alignItems:"center",
         
-        },
-        grid:{
-            marginTop: 15,
-            alignItems:"center",
-            //backgroundColor:'#78ff35',
-        },
-        title:{
-            marginLeft:width*.30,
-            fontFamily: "FredokaOne-Regular",
-            fontSize: 43,
-        },
-        listItem:{
-            fontFamily: "FredokaOne-Regular",
-            fontSize: 20,
-            marginLeft:width*.05,
-    
-        },
-        logoApp: {
-            width: width,
-            height: height * 0.15,
-            resizeMode: "contain",
-            
-        },
-        button:{
-            marginRight:310,
-            backgroundColor: 'green',
-        },
-        img:{
-            marginLeft: 40,
-            marginRight: 40,
-            justifyContent:"center",
-            alignItems:"center",
-            borderRadius: 35,
-            //backgroundColor: 'yellow',
-            width: width * .80,
-            height: height * .50,
-            resizeMode: "contain",
-    
-        },
-        text:{
-            marginTop:20,
-            //marginRight:40,
-            //marginLeft:40,
-            //marginLeft:width*.25,
-            //fontFamily: "FredokaOne-Regular",
-            fontSize:10,
-        },
-        version:{
-            marginTop:40,
-            //marginRight:width*.40,
-            //marginLeft:width*.25,
-            fontFamily: "FredokaOne-Regular",
-            fontSize:30,
-        }
+        borderRadius:20,
+        
+        marginRight:width*0.03,
+        marginLeft:width*0.03,
+        
+    },
+    grid:{
+        marginTop: height*0.015,
+        marginBottom:height*0.015,
+        alignItems:"center",
+        //backgroundColor:'#78ff35',
+    },
+    title:{
+        marginLeft:width*.30,
+        fontFamily: "FredokaOne-Regular",
+        fontSize: 43,
+    },
+    listItem:{
+        fontFamily: "FredokaOne-Regular",
+        fontSize: 20,
+        marginLeft:width*.05,
+    },
+    logoApp: {
+        width: width,
+        height: height * 0.15,
+        resizeMode: "contain",  
+    },
+    button:{
+        marginRight:310,
+        backgroundColor: 'green',
+    },
+    img:{
+        marginLeft: 40,
+        marginRight: 40,
+        justifyContent:"center",
+        alignItems:"center",
+        borderRadius: 35,
+        width: width * .80,
+        height: height * .50,
+        resizeMode: "contain",
+    },
+    text:{
+        marginTop:20,
+        fontSize:10,
+    },
+    version:{
+        marginTop:40,
+        //marginRight:width*.40,
+        //marginLeft:width*.25,
+        fontFamily: "FredokaOne-Regular",
+        fontSize:30,
+    },
+    linkImage:{
+        width: width * .15,
+        height: height * .05,
+        resizeMode: "contain",
+        marginLeft:28
+        
+    },
     
 
     

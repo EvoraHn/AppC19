@@ -28,7 +28,7 @@ const Home = ({navigation}) => {
     }
 
     return (
-    <Container style={{backgroundColor:'purple',padding:height*0.009}}>    
+    <Container style={{backgroundColor:'#7800B8',padding:height*0.005}}>    
 
     <Container style= {styles.container}>
                 <Button transparent style={styles.menu} onPress={()=> {navigation.navigate("About")}} >
@@ -42,7 +42,7 @@ const Home = ({navigation}) => {
             <H1 style={styles.subtitle} onPress={()=> {navigation.navigate("About")}}>Covid</H1>
             <Card style={{width:width*.80,backgroundColor:'#FFFFFF',borderRadius:20,paddingTop:5}}>
                 <Item style={styles.searchbar} >
-                            <Input placeholder="Buscar" style={{color:'#7800B8'}} />
+                            <Input placeholder="Search" style={{color:'#7800B8'}} />
                             <Button style={styles.magnifyinGlass}>
                                 <Icon name="search" /> 
                             </Button>
@@ -55,20 +55,24 @@ const Home = ({navigation}) => {
                                         
                 
                     
-          <Grid style={{marginTop:height*.03}}>
+          <Grid style={{marginTop:height*.08,marginBottom:height*.1}}>
                 <Col>
                     <Row > 
                         <Content  >
-                            
                             <Card style={styles.link} >
                                 <CardItem style={styles.link} >
                                 <Body style={styles.itemCenter} >
+                               
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
-                                        <Image source={require('../img/america.png')} transparent style={styles.linkImage} />
+                                   
+                                            <Image source={require('../img/america.png')} transparent style={styles.linkImage} />
+                                        
                                     </CardItem>
+                                    
                                     <Text style={styles.linkText} onPress={()=> {navigation.navigate("America")}}>
                                         America
                                     </Text>
+                                    
                                 </Body>
                                 </CardItem>
                             </Card>
@@ -113,8 +117,8 @@ const Home = ({navigation}) => {
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
                                         <Image source={require('../img/Mundo.png')} transparent style={styles.linkImage} />
                                     </CardItem>
-                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("America")}}>
-                                        El Mundo
+                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Results")}}>
+                                        the world
                                     </Text>
                                 </Body>
                                 </CardItem>
@@ -210,11 +214,9 @@ const styles = StyleSheet.create({
         color:'white',
     },
     linkImage:{
-        //marginTop:20,
         width: width * .30,
         height: height * .10,
         resizeMode: "contain",
-        //backgroundColor:'green',
     },
     itemCenter:{
         alignItems:"center",
@@ -230,7 +232,7 @@ const styles = StyleSheet.create({
         paddingTop:height*0.03,
         //justifyContent:"center",
         //alignItems:"center",
-        backgroundColor:'#7800B8',
+        //backgroundColor:'#7800B8',
     },
     
 
