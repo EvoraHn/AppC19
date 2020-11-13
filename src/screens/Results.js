@@ -61,9 +61,8 @@ const Results = ({navigation}) => {
                         </CardItem>
                         <CardItem >
                             <Left>
-                                
+                                <Text>aqui va el resultado</Text>
                             </Left>
-                            
                         </CardItem>
                         <CardItem >
             
