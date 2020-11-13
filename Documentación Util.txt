@@ -1,0 +1,8 @@
+Header Request
+
+https://es.stackoverflow.com/questions/281037/c-conexi%C3%B3n-con-api-con-token
+
+axios Connection
+
+https://www.npmjs.com/package/react-native-axios
+

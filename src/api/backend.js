@@ -2,6 +2,7 @@
 //importaremos axios
 
 import axios from "axios";
+<<<<<<< HEAD
 //import { config } from "dotenv/types";
 import getEnvVars from "../../enviroment";
 
@@ -58,3 +59,14 @@ export default instance;
 });*/
 
 
+=======
+import getEnvVars from "../../enviroment";
+
+//crear una instancia de conexion
+const instance = axios.create({
+    baseURL: process.env.API
+});
+
+
+export default instance;
+>>>>>>> Eliab

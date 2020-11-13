@@ -1,4 +1,5 @@
 //Importar las librerias necesarias
+<<<<<<< HEAD
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Text }  from "react-native"; //variable que antiene los esstilos
 import { Content,  Spinner} from "native-base";
@@ -10,10 +11,17 @@ import getEnvVars from "../../enviroment";
 const {apiUrl} = getEnvVars();
 
 //const { apiKey } = getEnvVars();
+=======
+import React, { useState } from "react";
+import { StyleSheet, Text }  from "react-native"; //variable que antiene los estilos
+
+
+>>>>>>> Eliab
 //Variable que va renderizar en pantalla
 const MenuCovidScreen = () => {
 
     //maneja el estado de la informacion de covid
+<<<<<<< HEAD
     const [ informacionCovid, setInformacionCovid] = useState("");
     const [error, setError] = useState(false); //variable para el estado del try catch
     
@@ -56,4 +64,17 @@ return (
 };
 
 //const styles = StyleSheet.create({});
+=======
+    const [ infCovid, setInfCovid] = useState(null);
+
+
+    // Las peticiones se hacen mediante funciones asincronas
+
+    return <Text>Este sera el menu principal</Text>;
+
+}
+
+const styles = StyleSheet.create({});
+
+>>>>>>> Eliab
 export default MenuCovidScreen;
