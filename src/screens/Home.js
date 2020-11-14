@@ -239,23 +239,3 @@ const styles = StyleSheet.create({
 
 });
 export default Home;
-/*
-<Grid >
-                    <Col >
-                        <Row >
-                            <Content >
-                                <Card transparent>
-                                    <CardItem >
-                                        <Body >
-                                            <Item>
-                                                <Input placeholder="Buscar" />
-                                                <Icon name="search" />
-                                            </Item>
-                                        </Body>
-                                    </CardItem>
-                                </Card>
-                            </Content>
-                        </Row>
-                    </Col>
-                </Grid>
-                */

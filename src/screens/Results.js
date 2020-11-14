@@ -1,31 +1,134 @@
-import React
-from "react";
+import React,{  useState, useEffect, version } from "react";
 
 import {StyleSheet,View,FlatList,Image,Dimensions} 
 from "react-native";
 import {Form,Item,Container,Header,Input, Icon, Button, Text,
     Body,Footer, Left,Title, Right,Col, Row, Grid,Content,Card,
     CardItem,Thumbnail,
-    H1}
+    H1,Spinner}
 from "native-base"
 import{useFonts,Raleway_200ExtraLight}
 from "@expo-google-fonts/raleway";
 import { AppLoading } 
 from "expo";
-import { version } from "react";
+//simport { version } from "react";
 import { color } from "react-native-reanimated";
 //Obtener los valores por destructuring altura y ancho
 const { width, height } = Dimensions.get("window");
 
+
+//Librerias de conexion
+import backend from "../api/backend";
+import getEnvVars from "../../enviroment";
+
+
+//Variables de Entorno
+//const {apiUrl} = getEnvVars();
+
 const Results = ({navigation}) => {
-    //fuentes de origen externo
-    let [fontsLoaded,error] = useFonts({
-        Raleway_200ExtraLight,
-        "FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
-    });
-    if (!fontsLoaded){
-        return <AppLoading/>
-    }
+
+    //maneja el estado de la informacion de covid en las peticiones
+    const [casosEnElMundo, setcasosEnElMundo] = useState(null);
+    const [errorConsulta, seterrorConsulta] = useState(false); //variable para el estado del try catch
+
+
+
+        //fuentes de origen externo
+        let [fontsLoaded,error] = useFonts({
+            Raleway_200ExtraLight,
+            "FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
+        });
+        
+
+
+
+    
+
+    
+
+    ///=================================== consultas =====================================
+
+
+
+
+
+
+
+
+    //Peticiones ------ Casos EN EL MUNDO -------
+        
+        // Las peticiones se hacen mediante funciones asincronas(cualquie momento)
+        const getcasosEnElMundo = async () => {
+            try {
+                //Consultar a la API de Covid19
+                const response = await backend.get(`cases?country=World`); //nuestros valores para este backend Traer la infor de el mundo
+                
+                //console.log("casos en el mundo"); // solo para probar que conecta
+                //console.log(response.data[0].data); // solo para probar que conecta en el prompt
+                
+                setcasosEnElMundo(response.data); // aqui la variable de estado ya recibio los valores de la peticion       
+                
+            } catch (errorConsulta) {
+                //errorConsulta al momento de ejecutar la peticion
+                seterrorConsulta(true);
+            }
+        };
+
+
+
+                // Efecto secundario que ejecuta la consulta a la API
+        useEffect(() => {
+            getcasosEnElMundo();
+        }, []);
+
+        
+        //los componentes se renderizan antes de ser mostrados y nunca pueden ir vacios
+        if (!casosEnElMundo) {
+            return (
+              <Content>
+                <Spinner/>
+              </Content>
+            )
+          }
+
+        if (!fontsLoaded){
+            return <AppLoading/>
+        }
+
+
+
+
+        
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
     return (
         
         <Container style ={styles.containerPrincipal}>
@@ -61,7 +164,7 @@ const Results = ({navigation}) => {
                         </CardItem>
                         <CardItem >
                             <Left>
-                                
+                                <Text>{casosEnElMundo[0].data}</Text>
                             </Left>
                             
                         </CardItem>
