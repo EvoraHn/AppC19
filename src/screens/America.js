@@ -81,7 +81,7 @@ const America = ({navigation}) => {
                                 <CardItem style={styles.card}>
                                     <Body style={{alignItems:"center"}}>
                                         <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
-                                            <Button transparent onPress={()=> {navigation.navigate("About")}}>
+                                            <Button transparent onPress={()=> {navigation.navigate("Results")}}>
                                                 <Image source={require('../img/Mundo.png')} transparent style={styles.linkImage} />
                                             </Button>
                                         </CardItem>

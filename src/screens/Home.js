@@ -55,7 +55,7 @@ const Home = ({navigation}) => {
                                         
                 
                     
-          <Grid style={{marginTop:height*.08,marginBottom:height*.1}}>
+          <Grid style={{marginTop:50,marginBottom:10,flex:2}}>
                 <Col>
                     <Row > 
                         <Content  >
@@ -145,6 +145,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         borderRadius: 35,
+        marginTop:30,
         
     },
     logoApp: {
@@ -205,8 +206,6 @@ const styles = StyleSheet.create({
         //backgroundColor:'red',
         //borderWidth:30,
         //borderColor:'green',
-        
-        
     },
     magnifyinGlass:{
         borderRadius:19,
@@ -234,8 +233,5 @@ const styles = StyleSheet.create({
         //alignItems:"center",
         //backgroundColor:'#7800B8',
     },
-    
-
-
 });
 export default Home;

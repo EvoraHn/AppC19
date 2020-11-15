@@ -1,88 +1,81 @@
-import React,{  useState, useEffect, version } from "react";
-
-import {StyleSheet,View,FlatList,Image,Dimensions} 
+import React,{  useState, useEffect} from "react";
+import {StyleSheet,Image,Dimensions} 
 from "react-native";
-import {Form,Item,Container,Header,Input, Icon, Button, Text,
-    Body,Footer, Left,Title, Right,Col, Row, Grid,Content,Card,
-    CardItem,Thumbnail,
-    H1,Spinner}
+import {Container,Text,Left, Right,Content,Card,CardItem,Spinner}
 from "native-base"
 import{useFonts,Raleway_200ExtraLight}
 from "@expo-google-fonts/raleway";
 import { AppLoading } 
 from "expo";
-//simport { version } from "react";
-import { color } from "react-native-reanimated";
 //Obtener los valores por destructuring altura y ancho
 const { width, height } = Dimensions.get("window");
-
-
 //Librerias de conexion
 import backend from "../api/backend";
-import getEnvVars from "../../enviroment";
 
-
-//Variables de Entorno
-//const {apiUrl} = getEnvVars();
 
 const Results = ({navigation}) => {
-
     //maneja el estado de la informacion de covid en las peticiones
     const [casosEnElMundo, setcasosEnElMundo] = useState(null);
+    
+    const [muertesEnElMundo, setmuertesEnElMundo] = useState(null);
+    //const [errorConsultaMuertes, seterrorConsultaMuertes] = useState(false); //variable para el estado del try catch
+
+    const [recuperadosEnElMundo, setrecuperadosEnElMundo] = useState(null);
+    //const [errorConsultaRecuperados, seterrorConsultaRecuperados] = useState(false); //variable para el estado del try catch
+
     const [errorConsulta, seterrorConsulta] = useState(false); //variable para el estado del try catch
-
-
 
         //fuentes de origen externo
         let [fontsLoaded,error] = useFonts({
             Raleway_200ExtraLight,
             "FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
         });
-        
-
-
-
-    
-
-    
-
+      
     ///=================================== consultas =====================================
-
-
-
-
-
-
-
 
     //Peticiones ------ Casos EN EL MUNDO -------
         
-        // Las peticiones se hacen mediante funciones asincronas(cualquie momento)
+        // Las peticiones se hacen mediante funciones asincronas(cualquier momento)
         const getcasosEnElMundo = async () => {
             try {
                 //Consultar a la API de Covid19
-                const response = await backend.get(`cases?country=World`); //nuestros valores para este backend Traer la infor de el mundo
-                
-                //console.log("casos en el mundo"); // solo para probar que conecta
-                //console.log(response.data[0].data); // solo para probar que conecta en el prompt
-                
-                setcasosEnElMundo(response.data); // aqui la variable de estado ya recibio los valores de la peticion       
-                
+                //nuestros valores para este backend Traer la información de el mundo
+                const response = await backend.get(`cases?country=World`); 
+                // aqui la variable de estado ya recibio los valores de la peticion
+                setcasosEnElMundo(response.data);        
             } catch (errorConsulta) {
                 //errorConsulta al momento de ejecutar la peticion
                 seterrorConsulta(true);
             }
         };
+        
+        const getmuertesEnElMundo = async () => {
+            try {
+                const response = await backend.get(`recovered?country=World`); 
+                setmuertesEnElMundo(response.data);    
+            } catch (errorConsulta) {
+                seterrorConsulta(true);
+            }
+        };
 
-
+        const getrecuperadosEnElMundo = async () => {
+            try {
+                const response = await backend.get(`deaths?country=World`); 
+                setrecuperadosEnElMundo(response.data);     
+            } catch (errorConsulta) {
+                seterrorConsulta(true);
+            }
+        };
 
                 // Efecto secundario que ejecuta la consulta a la API
         useEffect(() => {
             getcasosEnElMundo();
+            getmuertesEnElMundo();
+            getrecuperadosEnElMundo();
         }, []);
 
-        
-        //los componentes se renderizan antes de ser mostrados y nunca pueden ir vacios
+        //los componentes se renderizan antes de ser mostrados y nunca
+        //deben retornar null
         if (!casosEnElMundo) {
             return (
               <Content>
@@ -90,58 +83,36 @@ const Results = ({navigation}) => {
               </Content>
             )
           }
-
+          if (!muertesEnElMundo) {
+            return (
+              <Content>
+                <Spinner/>
+              </Content>
+            )
+          }
+          if (!recuperadosEnElMundo) {
+            return (
+              <Content>
+                <Spinner/>
+              </Content>
+            )
+          }
         if (!fontsLoaded){
             return <AppLoading/>
         }
-
-
-
-
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
     return (
-        
         <Container style ={styles.containerPrincipal}>
-            <CardItem style={{backgroundColor:'#14213D',}} > 
+            <CardItem style={styles.backgroundColor} > 
                 <Left>
                     <Text style={styles.title}>Region</Text>
                 </Left>   
                 
                 <Right>
-                    <Image source={require('../img/america.png')} transparent style={styles.linkImage} />
+                    <Image source={require('../img/america.png')}
+                     transparent style={styles.linkImage} />
                 </Right>
             </CardItem>
-            <CardItem style={{backgroundColor:'#14213D',}}>
+            <CardItem style={styles.backgroundColor}>
                 <Left>
                     <Text style={styles.subTitle}>Country</Text>
                 </Left>
@@ -156,50 +127,41 @@ const Results = ({navigation}) => {
                <Content>
                     <Card transparent>
                         <CardItem >
-            
                             <Left>
                                 <Text style={styles.listItem}>Infecteds</Text>
                             </Left>
-                            
                         </CardItem>
                         <CardItem >
                             <Left>
                                 <Text>{casosEnElMundo[0].data}</Text>
                             </Left>
-                            
                         </CardItem>
                         <CardItem >
-            
                             <Left>
                                 <Text style={styles.listItem}>recovered</Text>
                             </Left>
-                            
                         </CardItem>
                         <CardItem >
                             <Left>
-                                
+                                <Text>{muertesEnElMundo[0].data}</Text>
                             </Left>
-                            
                         </CardItem>
                         <CardItem >
-            
                             <Left>
                                 <Text style={styles.listItem}>dead</Text>
                             </Left>
-                            
                         </CardItem>
                         <CardItem >
                             <Left>
+                                <Text>{recuperadosEnElMundo[0].data}</Text>
                                 
-                            </Left>
-                            
+                            </Left> 
                         </CardItem>
-                        
                     </Card>
                </Content>
 
            </Container>
-           <CardItem style={{backgroundColor:'#14213D'}}>
+           <CardItem style={styles.backgroundColor}>
                <Left>
                    <Text style={{color:'#fff'}}>
                        updated results in the palm of your hand!
@@ -207,96 +169,33 @@ const Results = ({navigation}) => {
 
                </Left>
                <Right>
-                    <Image source={require('../img/logo.png')} transparent style={styles.linkImage} />
+                    <Image source={require('../img/logo.png')} 
+                    transparent style={styles.linkImage} />
                </Right>
            </CardItem>
         </Container>
-
-   
       );
   };
-  
 
+
+  //Aqui va la hoja de estilos, cualquier elemento linkeado aquí
+  //se verá afectado por las propiedades contenidas
+  //para linkear "en cualquier elemento"
+  //<Elemento style={{styles.container> </Elemento>}}
 const styles = StyleSheet.create({
-
-   
-    logoApp: {
-        width: width,
-        height: height * 0.15,
-        resizeMode: "contain",
-        
-    },
-    button:{
-        marginRight:310,
-        backgroundColor: 'green',
-    },
-    img:{
-        marginLeft: 40,
-        marginRight: 40,
-        justifyContent:"center",
-        alignItems:"center",
-        borderRadius: 35,
-        backgroundColor: 'yellow',
-        width: width * .80,
-        height: height * .50,
-        resizeMode: "contain",
-
-    },
-    text:{
-        marginTop:20,
-        marginRight:40,
-        marginLeft:40,
-        //marginLeft:width*.25,
-        //fontFamily: "FredokaOne-Regular",
-        fontSize:10,
-    },
-    version:{
-        marginTop:40,
-        //marginRight:width*.40,
-        marginLeft:width*.25,
-        fontFamily: "FredokaOne-Regular",
-        fontSize:30,
-    },
     container: {
         flex:10,
         justifyContent:"center",
-        //alignItems:"center",
         borderRadius: 35,
         backgroundColor:'white',
         marginBottom: height*0.001,
         paddingBottom:height*0.04,
-        //marginTop:height*0.04
     },
     containerPrincipal: {
         flex:1,
         paddingTop:height*0.04,
         paddingBottom:height*0.009,
-        //backgroundColor:'#7800B8',
         backgroundColor:'#14213D',
-    },
-    card:{
-        justifyContent:"center",
-        alignItems:"center",
-        borderRadius:20,
-        marginBottom:30
-    },
-    grid:{
-        marginTop: height*0.015,
-        //marginBottom:height*0.1,
-        alignItems:"center",
-        //height:height*1
-    },
-    listItem:{
-        fontFamily: "FredokaOne-Regular",
-        fontSize: 20,
-        marginLeft:width*.05,
-    },
-    version:{
-        marginTop:height * 0.15,
-        //marginRight:width*.40,
-        //marginLeft:width*.25,
-        fontFamily: "FredokaOne-Regular",
-        fontSize:30,
     },
     linkImage:{
         width: width * .30,
@@ -316,7 +215,6 @@ const styles = StyleSheet.create({
         fontSize: height*.049,
         marginTop:height*.029,
         marginBottom:height*.029,
-        
     },
     subTitle:{
         textAlign:"center",
@@ -324,14 +222,15 @@ const styles = StyleSheet.create({
         fontSize: height*.039,
         marginTop:height*-.029,
         color:'#FFF',
-        
     },
     listItem:{
         fontFamily: "FredokaOne-Regular",
         fontSize: 20,
         marginLeft:width*.05,
         marginRight:width*.05,
-
     },
+    backgroundColor:{
+        backgroundColor:'#14213D',
+    } 
 });
 export default Results;
