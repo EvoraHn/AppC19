@@ -12,6 +12,7 @@ import {Form,Item,Container,Header,Input, Icon, Button, Text,
 from "native-base"
 import{useFonts,Raleway_200ExtraLight}from "@expo-google-fonts/raleway";
 import { AppLoading } from "expo";
+import worldImgRoute from '../img/Mundo.png'
 
 //Obtener los valores por destructuring
 const { width, height } = Dimensions.get("window");
@@ -85,7 +86,7 @@ const Home = ({navigation}) => {
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
                                         <Image source={require('../img/Asia.png')} transparent style={styles.linkImage} />
                                     </CardItem>
-                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("America")}}>
+                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Asia")}}>
                                         Asia
                                     </Text>
                                 </Body>
@@ -102,7 +103,7 @@ const Home = ({navigation}) => {
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
                                         <Image source={require('../img/Europa.png')} transparent style={styles.linkImage} />
                                     </CardItem>
-                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("America")}}>
+                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Europa")}}>
                                         Europa
                                     </Text>
                                 </Body>
@@ -117,8 +118,8 @@ const Home = ({navigation}) => {
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
                                         <Image source={require('../img/Mundo.png')} transparent style={styles.linkImage} />
                                     </CardItem>
-                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Results")}}>
-                                        the world
+                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Results",{country:'World',region:'World',imgRoute:"Mundo"})}}>
+                                        The world
                                     </Text>
                                 </Body>
                                 </CardItem>

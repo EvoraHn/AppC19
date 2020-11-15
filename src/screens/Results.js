@@ -13,7 +13,7 @@ const { width, height } = Dimensions.get("window");
 import backend from "../api/backend";
 
 
-const Results = ({navigation}) => {
+const Results = ({route,navigation}) => {
     //maneja el estado de la informacion de covid en las peticiones
     const [casosEnElMundo, setcasosEnElMundo] = useState(null);
     
@@ -25,6 +25,11 @@ const Results = ({navigation}) => {
 
     const [errorConsulta, seterrorConsulta] = useState(false); //variable para el estado del try catch
 
+    //variables de la pantalla Dinamica
+    const {country} = route.params;
+    const {region} = route.params;
+    const {imgRoute} = route.params;
+  
         //fuentes de origen externo
         let [fontsLoaded,error] = useFonts({
             Raleway_200ExtraLight,
@@ -40,7 +45,7 @@ const Results = ({navigation}) => {
             try {
                 //Consultar a la API de Covid19
                 //nuestros valores para este backend Traer la información de el mundo
-                const response = await backend.get(`cases?country=World`); 
+                const response = await backend.get(`cases?country=${country}`); 
                 // aqui la variable de estado ya recibio los valores de la peticion
                 setcasosEnElMundo(response.data);        
             } catch (errorConsulta) {
@@ -51,7 +56,7 @@ const Results = ({navigation}) => {
         
         const getmuertesEnElMundo = async () => {
             try {
-                const response = await backend.get(`recovered?country=World`); 
+                const response = await backend.get(`deaths?country=${country}`); 
                 setmuertesEnElMundo(response.data);    
             } catch (errorConsulta) {
                 seterrorConsulta(true);
@@ -60,7 +65,7 @@ const Results = ({navigation}) => {
 
         const getrecuperadosEnElMundo = async () => {
             try {
-                const response = await backend.get(`deaths?country=World`); 
+                const response = await backend.get(`recovered?country=${country}`); 
                 setrecuperadosEnElMundo(response.data);     
             } catch (errorConsulta) {
                 seterrorConsulta(true);
@@ -104,7 +109,7 @@ const Results = ({navigation}) => {
         <Container style ={styles.containerPrincipal}>
             <CardItem style={styles.backgroundColor} > 
                 <Left>
-                    <Text style={styles.title}>Region</Text>
+                    <Text style={styles.title}>{region}</Text>
                 </Left>   
                 
                 <Right>
@@ -114,9 +119,8 @@ const Results = ({navigation}) => {
             </CardItem>
             <CardItem style={styles.backgroundColor}>
                 <Left>
-                    <Text style={styles.subTitle}>Country</Text>
+                    <Text style={styles.subTitle}>{country}</Text>
                 </Left>
-                
             </CardItem>
             
            <Container style={styles.container}>
@@ -143,7 +147,7 @@ const Results = ({navigation}) => {
                         </CardItem>
                         <CardItem >
                             <Left>
-                                <Text>{muertesEnElMundo[0].data}</Text>
+                                <Text>{recuperadosEnElMundo[0].data}</Text>
                             </Left>
                         </CardItem>
                         <CardItem >
@@ -153,7 +157,7 @@ const Results = ({navigation}) => {
                         </CardItem>
                         <CardItem >
                             <Left>
-                                <Text>{recuperadosEnElMundo[0].data}</Text>
+                                <Text>{muertesEnElMundo[0].data}</Text>
                                 
                             </Left> 
                         </CardItem>
@@ -184,7 +188,7 @@ const Results = ({navigation}) => {
   //<Elemento style={{styles.container> </Elemento>}}
 const styles = StyleSheet.create({
     container: {
-        flex:10,
+        flex:1,
         justifyContent:"center",
         borderRadius: 35,
         backgroundColor:'white',
@@ -206,7 +210,8 @@ const styles = StyleSheet.create({
     title:{
         textAlign:"center",
         fontFamily: "FredokaOne-Regular",
-        fontSize: height*.069,
+        //fontSize: height*.069,
+        fontSize: 50,
         color:'#FFF',
     },
     titleTable:{

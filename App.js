@@ -4,6 +4,8 @@ import Home from "./src/screens/Home";
 import About from "./src/screens/about";
 import Splash from "./src/screens/splash";
 import America from "./src/screens/America";
+import Asia from "./src/screens/Asia";
+import Europa from "./src/screens/Europa";
 import Results from "./src/screens/Results";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
@@ -21,8 +23,9 @@ export default function App() {
         <Stack.Screen name="About" component={About} options={{headerShown:false}}/>
         <Stack.Screen name="Splash" component={Splash} options={{headerShown:false}}/>
         <Stack.Screen name="America" component={America} options={{headerShown:false}}/>
+        <Stack.Screen name="Asia" component={Asia} options={{headerShown:false}}/>
+        <Stack.Screen name="Europa" component={Europa} options={{headerShown:false}}/>
         <Stack.Screen name="Results" component={Results} options={{headerShown:false}}/>
-      
       </Stack.Navigator>
     </NavigationContainer>
      )
