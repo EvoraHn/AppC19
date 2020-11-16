@@ -45,5 +45,9 @@ expo fonts pero con use efects antes de renderizar (tomar en cuenta)
 
 npm es la mejor opción para componentes
 
+fuentes ----
+expo install @expo-google-fonts/raleway
+
+
 
 

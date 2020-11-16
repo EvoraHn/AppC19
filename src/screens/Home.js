@@ -12,6 +12,7 @@ import {Form,Item,Container,Header,Input, Icon, Button, Text,
 from "native-base"
 import{useFonts,Raleway_200ExtraLight}from "@expo-google-fonts/raleway";
 import { AppLoading } from "expo";
+import worldImgRoute from '../img/Mundo.png'
 
 //Obtener los valores por destructuring
 const { width, height } = Dimensions.get("window");
@@ -55,7 +56,7 @@ const Home = ({navigation}) => {
                                         
                 
                     
-          <Grid style={{marginTop:height*.08,marginBottom:height*.1}}>
+          <Grid style={{marginTop:50,marginBottom:10,flex:2}}>
                 <Col>
                     <Row > 
                         <Content  >
@@ -85,7 +86,7 @@ const Home = ({navigation}) => {
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
                                         <Image source={require('../img/Asia.png')} transparent style={styles.linkImage} />
                                     </CardItem>
-                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("America")}}>
+                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Asia")}}>
                                         Asia
                                     </Text>
                                 </Body>
@@ -102,7 +103,7 @@ const Home = ({navigation}) => {
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
                                         <Image source={require('../img/Europa.png')} transparent style={styles.linkImage} />
                                     </CardItem>
-                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("America")}}>
+                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Europa")}}>
                                         Europa
                                     </Text>
                                 </Body>
@@ -117,8 +118,8 @@ const Home = ({navigation}) => {
                                     <CardItem cardBody style={{alignItems:"center",alignContent:"center",justifyContent:"center"}} >
                                         <Image source={require('../img/Mundo.png')} transparent style={styles.linkImage} />
                                     </CardItem>
-                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Results")}}>
-                                        the world
+                                    <Text style={styles.linkText} onPress={()=> {navigation.navigate("Results",{country:'World',region:'World',imgRoute:"Mundo"})}}>
+                                        The world
                                     </Text>
                                 </Body>
                                 </CardItem>
@@ -145,6 +146,7 @@ const styles = StyleSheet.create({
         justifyContent:"center",
         alignItems:"center",
         borderRadius: 35,
+        marginTop:30,
         
     },
     logoApp: {
@@ -205,8 +207,6 @@ const styles = StyleSheet.create({
         //backgroundColor:'red',
         //borderWidth:30,
         //borderColor:'green',
-        
-        
     },
     magnifyinGlass:{
         borderRadius:19,
@@ -234,28 +234,5 @@ const styles = StyleSheet.create({
         //alignItems:"center",
         //backgroundColor:'#7800B8',
     },
-    
-
-
 });
 export default Home;
-/*
-<Grid >
-                    <Col >
-                        <Row >
-                            <Content >
-                                <Card transparent>
-                                    <CardItem >
-                                        <Body >
-                                            <Item>
-                                                <Input placeholder="Buscar" />
-                                                <Icon name="search" />
-                                            </Item>
-                                        </Body>
-                                    </CardItem>
-                                </Card>
-                            </Content>
-                        </Row>
-                    </Col>
-                </Grid>
-                */
