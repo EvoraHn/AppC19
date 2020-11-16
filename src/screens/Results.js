@@ -15,14 +15,19 @@ import backend from "../api/backend";
 
 const Results = ({route,navigation}) => {
     //maneja el estado de la informacion de covid en las peticiones
-    const [casosEnElMundo, setcasosEnElMundo] = useState(null);
+    const [casosDeHoyPorCovid, setcasosDeHoyPorCovid] = useState(null);
+
+    const [casosPorCovid, setcasosPorCovid] = useState(null);
     
-    const [muertesEnElMundo, setmuertesEnElMundo] = useState(null);
-    //const [errorConsultaMuertes, seterrorConsultaMuertes] = useState(false); //variable para el estado del try catch
+    const [muertesPorCovid, setmuertesPorCovid] = useState(null);
+    
+    const [recuperadosPorCovid, setrecuperadosPorCovid] = useState(null);
 
-    const [recuperadosEnElMundo, setrecuperadosEnElMundo] = useState(null);
-    //const [errorConsultaRecuperados, seterrorConsultaRecuperados] = useState(false); //variable para el estado del try catch
+    const [criticosPorCovid, setcriticosPorCovid] = useState(null);
 
+    const [totalPruebasPorCovid, settotalPruebasPorCovid] = useState(null);
+   
+     //const [errorConsultaRecuperados, seterrorConsultaRecuperados] = useState(false); //variable para el estado del try catch
     const [errorConsulta, seterrorConsulta] = useState(false); //variable para el estado del try catch
 
     //variables de la pantalla Dinamica
@@ -38,35 +43,76 @@ const Results = ({route,navigation}) => {
       
     ///=================================== consultas =====================================
 
-    //Peticiones ------ Casos EN EL MUNDO -------
+    //Peticiones ------ CASOS de HOY -------
         
         // Las peticiones se hacen mediante funciones asincronas(cualquier momento)
-        const getcasosEnElMundo = async () => {
+        const getcasosDeHoyPorCovid = async () => {
             try {
                 //Consultar a la API de Covid19
                 //nuestros valores para este backend Traer la información de el mundo
-                const response = await backend.get(`cases?country=${country}`); 
+                const response = await backend.get(`todayCases?country=${country}`); 
                 // aqui la variable de estado ya recibio los valores de la peticion
-                setcasosEnElMundo(response.data);        
+                setcasosDeHoyPorCovid(response.data);        
             } catch (errorConsulta) {
                 //errorConsulta al momento de ejecutar la peticion
                 seterrorConsulta(true);
             }
         };
+
+
+    //Peticiones ------ CASOS -------
         
-        const getmuertesEnElMundo = async () => {
+        // Las peticiones se hacen mediante funciones asincronas(cualquier momento)
+        const getcasosPorCovid = async () => {
+            try {
+                //Consultar a la API de Covid19
+                //nuestros valores para este backend Traer la información de el mundo
+                const response = await backend.get(`cases?country=${country}`); 
+                // aqui la variable de estado ya recibio los valores de la peticion
+                setcasosPorCovid(response.data);        
+            } catch (errorConsulta) {
+                //errorConsulta al momento de ejecutar la peticion
+                seterrorConsulta(true);
+            }
+        };
+
+          //Peticiones ------MUERTES -------
+        
+        const getmuertesPorCovid = async () => {
             try {
                 const response = await backend.get(`deaths?country=${country}`); 
-                setmuertesEnElMundo(response.data);    
+                setmuertesPorCovid(response.data);    
             } catch (errorConsulta) {
                 seterrorConsulta(true);
             }
         };
 
-        const getrecuperadosEnElMundo = async () => {
+          //Peticiones ------ Recuperados -------
+        const getrecuperadosPorCovid = async () => {
             try {
                 const response = await backend.get(`recovered?country=${country}`); 
-                setrecuperadosEnElMundo(response.data);     
+                setrecuperadosPorCovid(response.data);     
+            } catch (errorConsulta) {
+                seterrorConsulta(true);
+            }
+        };
+
+
+          //Peticiones ------ Criticos  -------
+        const getcriticosPorCovid = async () => {
+            try {
+                const response = await backend.get(`critical?country=${country}`); 
+                setcriticosPorCovid(response.data);     
+            } catch (errorConsulta) {
+                seterrorConsulta(true);
+            }
+        };
+
+          //Peticiones ------ Total Pruebas  -------
+          const gettotalPruebasPorCovid = async () => {
+            try {
+                const response = await backend.get(`critical?country=${country}`); 
+                settotalPruebasPorCovid(response.data);     
             } catch (errorConsulta) {
                 seterrorConsulta(true);
             }
@@ -74,34 +120,61 @@ const Results = ({route,navigation}) => {
 
                 // Efecto secundario que ejecuta la consulta a la API
         useEffect(() => {
-            getcasosEnElMundo();
-            getmuertesEnElMundo();
-            getrecuperadosEnElMundo();
+            getcasosDeHoyPorCovid();
+            getcasosPorCovid();
+            getmuertesPorCovid();
+            getrecuperadosPorCovid();
+            getcriticosPorCovid();
+            gettotalPruebasPorCovid();
         }, []);
 
         //los componentes se renderizan antes de ser mostrados y nunca
         //deben retornar null
-        if (!casosEnElMundo) {
+        if (!casosDeHoyPorCovid) {
             return (
               <Content>
                 <Spinner/>
               </Content>
             )
           }
-          if (!muertesEnElMundo) {
+
+        if (!casosPorCovid) {
             return (
               <Content>
                 <Spinner/>
               </Content>
             )
           }
-          if (!recuperadosEnElMundo) {
+          if (!muertesPorCovid) {
             return (
               <Content>
                 <Spinner/>
               </Content>
             )
           }
+          if (!recuperadosPorCovid) {
+            return (
+              <Content>
+                <Spinner/>
+              </Content>
+            )
+          }
+
+          if (!criticosPorCovid) {
+            return (
+              <Content>
+                <Spinner/>
+              </Content>
+            )
+          }
+          if (!totalPruebasPorCovid) {
+            return (
+              <Content>
+                <Spinner/>
+              </Content>
+            )
+          }
+ 
         if (!fontsLoaded){
             return <AppLoading/>
         }
@@ -132,32 +205,66 @@ const Results = ({route,navigation}) => {
                     <Card transparent>
                         <CardItem >
                             <Left>
+                                <Text style={styles.listItem}>Today Cases</Text>
+                            </Left>
+                        </CardItem>
+                        <CardItem >
+                            <Left>
+                                <Text>{casosDeHoyPorCovid[0].data}</Text>
+                            </Left>
+                        </CardItem>
+
+                        <CardItem >
+                            <Left>
                                 <Text style={styles.listItem}>Infecteds</Text>
                             </Left>
                         </CardItem>
                         <CardItem >
                             <Left>
-                                <Text>{casosEnElMundo[0].data}</Text>
+                                <Text>{casosPorCovid[0].data}</Text>
+                            </Left>
+                        </CardItem>
+
+                        <CardItem >
+                            <Left>
+                                <Text style={styles.listItem}>Recovereds</Text>
                             </Left>
                         </CardItem>
                         <CardItem >
                             <Left>
-                                <Text style={styles.listItem}>recovered</Text>
+                                <Text>{recuperadosPorCovid[0].data}</Text>
                             </Left>
                         </CardItem>
                         <CardItem >
                             <Left>
-                                <Text>{recuperadosEnElMundo[0].data}</Text>
+                                <Text style={styles.listItem}>Deaths</Text>
                             </Left>
                         </CardItem>
                         <CardItem >
                             <Left>
-                                <Text style={styles.listItem}>dead</Text>
+                                <Text>{muertesPorCovid[0].data}</Text>
+                                
+                            </Left> 
+                        </CardItem>
+                        <CardItem >
+                            <Left>
+                                <Text style={styles.listItem}>Critical</Text>
                             </Left>
                         </CardItem>
                         <CardItem >
                             <Left>
-                                <Text>{muertesEnElMundo[0].data}</Text>
+                                <Text>{criticosPorCovid[0].data}</Text>
+                                
+                            </Left> 
+                        </CardItem>
+                        <CardItem >
+                            <Left>
+                                <Text style={styles.listItem}>Total Test</Text>
+                            </Left>
+                        </CardItem>
+                        <CardItem >
+                            <Left>
+                                <Text>{totalPruebasPorCovid[0].data}</Text>
                                 
                             </Left> 
                         </CardItem>
