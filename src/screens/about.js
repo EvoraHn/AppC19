@@ -51,7 +51,8 @@ const About = ({navigation}) => {
                 <Card transparent >
                 <CardItem style={styles.card}>
                     <Button transparent 
-                    onPress={()=> {navigation.navigate("Results")}}>
+                    onPress={()=> {navigation.navigate("Results",
+                    {country:'World',region:'World',imgRoute:'World'})}}>
                     <Image source={require('../img/Mundo.png')}
                         transparent style={styles.linkImage} />
                     </Button>
