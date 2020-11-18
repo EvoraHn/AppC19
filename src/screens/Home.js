@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useState } from "react";
 import
     {StyleSheet,View,FlatList,Image,Dimensions} 
 from "react-native";
@@ -18,6 +18,9 @@ import worldImgRoute from '../img/Mundo.png'
 const { width, height } = Dimensions.get("window");
 
 const Home = ({navigation}) => {
+    //variable para hacer busquedas
+    const {search,setSearch} = useState("");
+
     let [fontsLoaded,error] = useFonts({
         Raleway_200ExtraLight,
         "FredokaOne-Regular":require("../../assets/fonts/FredokaOne-Regular.ttf"),
@@ -44,8 +47,12 @@ const Home = ({navigation}) => {
             </H1>
             <Card style={{width:width*.80,borderRadius:20,paddingTop:5}}>
                 <Item style={styles.searchbar} >
-                    <Input placeholder="Search" style={{color:'#7800B8'}} />
-                        <Button style={styles.magnifyinGlass}>
+                    <Input placeholder="Search" value={search}
+                     onChangeText={setSearch} style={{color:'#7800B8'}} />
+                        <Button style={styles.magnifyinGlass} onPress={()=>
+                         {navigation.navigate("Results",
+                            {country:{search},region:'World',
+                            imgRoute:'World'})}} >
                             <Icon name="search" /> 
                         </Button>                      
                 </Item>
