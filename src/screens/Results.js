@@ -173,7 +173,7 @@ const Results = ({route,navigation}) => {
 
                </Left>
                <Right>
-                    <Image source={require('../img/logo.png')} 
+                    <Image source={require(`../img/${Ruta_Imagen}.png`)} 
                     transparent style={styles.linkImage} />
                </Right>
            </CardItem>
