@@ -4,28 +4,28 @@ después de hacer el git clone debes instalar los modulos necesarios para la edi
 
 Componentes:
 
---Expo 
+=================  Expo =====================
 para instalarlo navega hasta la carpeta donde clonaste el proyecto
 
 ejemplo Cd desktop/Proyect
 
 e ingresa el siguiente comando: expo init AppC19
 
---Native Base
+================= Native Base =================
 para instalarlo navega hasta la carpeta donde clonaste el proyecto
 
 ejemplo Cd desktop/Proyect/AppC19
 
 e ingresa el comando: npm install native-base
 
---Axios
+================= Axios =================
 para instalarlo navega hasta la carpeta donde clonaste el proyecto
 
 ejemplo Cd desktop/Proyect/AppC19
 
 e ingresa el comando: Expo install axios
 
---React - Navigation
+================= React - Navigation =================
 para instalarlo navega hasta la carpeta donde clonaste el proyecto
 
 ejemplo Cd desktop/Proyect/AppC19
@@ -39,11 +39,28 @@ tipo de navegación en pilas
 
 
 
-chatjs para graficos "libreria"
-react native chart kit
 expo fonts pero con use efects antes de renderizar (tomar en cuenta)
 
 npm es la mejor opción para componentes
+
+fuentes ----
+expo install @expo-google-fonts/raleway
+
+
+============= Graficos =========
+
+npm install -g react-native-cli
+
+===> Instalación de dependencias
+
+npm install react-native-chart-kit --save
+
+npm install react-native-svg --save
+
+
+
+
+
 
 
 

@@ -2,71 +2,21 @@
 //importaremos axios
 
 import axios from "axios";
-<<<<<<< HEAD
-//import { config } from "dotenv/types";
 import getEnvVars from "../../enviroment";
 
 //variables de entorno
 const { apiUrl } = getEnvVars();
 
-//Axios
-//const axios = require('axios');
-
-
+//crear una instancia de conexion
 const instance = axios.create ({
 
     baseURL: "https://apigw.nubentos.com:443/t/nubentos.com/ncovapi/2.0.0/",
     headers: { 
-        'Authorization': 'Bearer a06d12d9-96f8-379b-91aa-47cd1abba394', 
-        'Cookie': 'route=1604878172.593.2154.220417; connect.sid=s%3A4OWUBGuaq5pXVYKsL5sLxyqCqPyf4DcM.q347FDL9N9W%2BObfPKOj90oLJaDEgGCtFuDskOkHdJI4'
-    }
-});
+        'Authorization': 'Bearer 17a7d0b9-8430-31fe-a13c-4bd155106d15', 
+        'Cookie': 'route=1605396087.05.4540.451421; connect.sid=s%3A2TcpJmvfT-c4MNRCx04e8qiWgW64uOn8.2SwYE%2B9gF2U5teJ5PlM4Yx1GIo75cieCMXEmS6v3V7Y'
+      }
 
-/*axios(instance)
-.then(function (response) {
-  console.log(JSON.stringify(response.data));
-})
-.catch(function (error) {
-  console.log(error);
-});*/
-
-
-export default instance;
-
-/*axiosApiInstance.interceptors.request.use(
-    async config => {
-        const value = await redistClient.get(redisKey)
-        const keys = JSON.parse(value)
-        config.authorization = {
-            'TYPE':"Bearer Token",
-            'Token': '9d1b7d6e-e82d-3da9-8dae-85f2985bdbf6',
-
-        }
-        return config;
-    },
-    error => {
-        Promise.reject(error)
-    }
-);*/
-
-
-
-
-//-----------------------------------------
-//crear una instancia de conexion
-/*const instance = axios.create({
-    baseURL: apiUrl
-});*/
-
-
-=======
-import getEnvVars from "../../enviroment";
-
-//crear una instancia de conexion
-const instance = axios.create({
-    baseURL: process.env.API
 });
 
 
 export default instance;
->>>>>>> Eliab

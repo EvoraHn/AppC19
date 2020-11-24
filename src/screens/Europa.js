@@ -12,7 +12,7 @@ from "expo";
 //Obtener los valores por destructuring altura y ancho
 const { width, height } = Dimensions.get("window");
 
-const America = ({navigation}) => {
+const Europa = ({navigation}) => {
     //fuentes de origen externo
     let [fontsLoaded,error] = useFonts({
         Raleway_200ExtraLight,
@@ -25,6 +25,15 @@ const America = ({navigation}) => {
         
         <Container style ={styles.containerPrincipal}>
             <CardItem style={styles.header} > 
+                <Card transparent >
+                    <CardItem style={styles.card}>
+                        <Button transparent 
+                            onPress={()=> {navigation.navigate("America")}}>
+                            <Image source={require('../img/america.png')}
+                                transparent style={styles.linkImage} />
+                        </Button>
+                    </CardItem>
+                </Card>
 
                 <Card transparent >
                     <CardItem style={styles.card}>
@@ -34,16 +43,6 @@ const America = ({navigation}) => {
                                 transparent style={styles.linkImage} />
                         </Button>
                     </CardItem>
-                </Card>
-
-                <Card transparent >
-                <CardItem style={styles.card}>
-                    <Button transparent 
-                    onPress={()=> {navigation.navigate("Europa")}}>
-                    <Image source={require('../img/Europa.png')}
-                        transparent style={styles.linkImage} />
-                    </Button>
-                </CardItem>
                 </Card>
 
                 <Card transparent >
@@ -70,17 +69,16 @@ const America = ({navigation}) => {
 
            <Container style={styles.container}>
                <Text style={styles.title}>
-                   America
+                   Europa
                </Text>
                <Content >
                     <Card transparent >
                         <CardItem>
-            
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Honduras',region:'America',
-                                    imgRoute:'America'})}}>Honduras</Text>
+                                    country:'Spain',region:'Europa',
+                                    imgRoute:'Europa'})}}>Spain</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -90,9 +88,9 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'USA',region:'America',
-                                    imgRoute:'America'})}}>
-                                    USA</Text>
+                                    country:'Italy',region:'Europa',
+                                    imgRoute:'Europa'})}}>
+                                    Italy</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -102,8 +100,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Brazil',region:'America',
-                                    imgRoute:'America'})}}>Brazil</Text>
+                                    country:'UK',region:'Europa',
+                                    imgRoute:'Europa'})}}>United Kingdom</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -113,8 +111,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Canada',region:'America',
-                                    imgRoute:'America'})}}>Canadá</Text>
+                                    country:'France',region:'Europa',
+                                    imgRoute:'Europa'})}}>France</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -124,8 +122,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Peru',region:'America',
-                                    imgRoute:'America'})}}>Perú</Text>
+                                    country:'Germany',region:'Europa',
+                                    imgRoute:'Europa'})}}>Germany</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -135,8 +133,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Ecuador',region:'America',
-                                    imgRoute:'America'})}}>Ecuador</Text>
+                                    country:'Belgium',region:'Europa',
+                                    imgRoute:'Europa'})}}>Belgium</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -146,8 +144,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Mexico',region:'America',
-                                    imgRoute:'America'})}}>México</Text>
+                                    country:'Netherlands',region:'Europa',
+                                    imgRoute:'Europa'})}}>Netherlands</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -157,8 +155,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Chile',region:'America',
-                                    imgRoute:'America'})}}>Chile</Text>
+                                    country:'Switzerland',region:'Europa',
+                                    imgRoute:'Europa'})}}>Switzerland</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -168,8 +166,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Colombia',region:'America',
-                                    imgRoute:'America'})}}>Colombia</Text>
+                                    country:'Portugal',region:'Europa',
+                                    imgRoute:'Europa'})}}>Portugal</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -179,8 +177,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Panama',region:'America',
-                                    imgRoute:'America'})}}>Panamá</Text>
+                                    country:'Sweden',region:'Europa',
+                                    imgRoute:'Europa'})}}>Sweden</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -190,8 +188,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Argentina',region:'America',
-                                    imgRoute:'America'})}}>Argentina</Text>
+                                    country:'Ireland',region:'Europa',
+                                    imgRoute:'Europa'})}}>Ireland</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -201,8 +199,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Cuba',region:'America',
-                                    imgRoute:'America'})}}>Cuba</Text>
+                                    country:'Austria',region:'Europa',
+                                    imgRoute:'Europa'})}}>Austria</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -212,35 +210,14 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=> {
                                     navigation.navigate("Results",{
-                                    country:'Costarica',region:'America',
-                                    imgRoute:'America'})}}>Costarica</Text>
+                                    country:'Lithuania',region:'Europa',
+                                    imgRoute:'Europa'})}}>Lithuania</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
                             </Right>
                         </CardItem>
-                        <CardItem >
-                            <Left>
-                                <Text style={styles.listItem} onPress={()=> {
-                                    navigation.navigate("Results",{
-                                    country:'Guatemala',region:'America',
-                                    imgRoute:'America'})}}>Guatemala</Text>
-                            </Left>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
-                        <CardItem >
-                            <Left>
-                                <Text style={styles.listItem} onPress={()=> {
-                                    navigation.navigate("Results",{
-                                    country:'El Salvador',region:'America',
-                                    imgRoute:'America'})}}>El Salvador</Text>
-                            </Left>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
+                       
                     </Card>
                </Content>
            </Container>
@@ -332,10 +309,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginLeft:width*.05,
         marginRight:width*.05,
-    }
-    
-
-    
-
+    },
 });
-export default America;
+export default Europa;

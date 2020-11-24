@@ -12,7 +12,7 @@ from "expo";
 //Obtener los valores por destructuring altura y ancho
 const { width, height } = Dimensions.get("window");
 
-const America = ({navigation}) => {
+const Asia = ({navigation}) => {
     //fuentes de origen externo
     let [fontsLoaded,error] = useFonts({
         Raleway_200ExtraLight,
@@ -25,12 +25,11 @@ const America = ({navigation}) => {
         
         <Container style ={styles.containerPrincipal}>
             <CardItem style={styles.header} > 
-
                 <Card transparent >
                     <CardItem style={styles.card}>
                         <Button transparent 
-                            onPress={()=> {navigation.navigate("Asia")}}>
-                            <Image source={require('../img/Asia.png')}
+                            onPress={()=> {navigation.navigate("America")}}>
+                            <Image source={require('../img/america.png')}
                                 transparent style={styles.linkImage} />
                         </Button>
                     </CardItem>
@@ -70,7 +69,7 @@ const America = ({navigation}) => {
 
            <Container style={styles.container}>
                <Text style={styles.title}>
-                   America
+                   Asia
                </Text>
                <Content >
                     <Card transparent >
@@ -79,8 +78,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Honduras',region:'America',
-                                    imgRoute:'America'})}}>Honduras</Text>
+                                    country:'Iran',region:'Asia',
+                                    imgRoute:'Asia'})}}>Iran</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -90,9 +89,9 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'USA',region:'America',
-                                    imgRoute:'America'})}}>
-                                    USA</Text>
+                                    country:'India',region:'Asia',
+                                    imgRoute:'Asia'})}}>
+                                    India</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -102,8 +101,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Brazil',region:'America',
-                                    imgRoute:'America'})}}>Brazil</Text>
+                                    country:'Saudi Arabia',region:'Asia',
+                                    imgRoute:'Asia'})}}>Saudi Arabia</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -113,8 +112,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Canada',region:'America',
-                                    imgRoute:'America'})}}>Canadá</Text>
+                                    country:'Pakistan',region:'Asia',
+                                    imgRoute:'Asia'})}}>Pakistan</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -124,8 +123,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Peru',region:'America',
-                                    imgRoute:'America'})}}>Perú</Text>
+                                    country:'Singapore',region:'Asia',
+                                    imgRoute:'Asia'})}}>Singapore</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -135,8 +134,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Ecuador',region:'America',
-                                    imgRoute:'America'})}}>Ecuador</Text>
+                                    country:'Israel',region:'Asia',
+                                    imgRoute:'Asia'})}}>Israel</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -146,8 +145,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Mexico',region:'America',
-                                    imgRoute:'America'})}}>México</Text>
+                                    country:'Japan',region:'Asia',
+                                    imgRoute:'Asia'})}}>Japan</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -157,8 +156,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Chile',region:'America',
-                                    imgRoute:'America'})}}>Chile</Text>
+                                    country:'Qatar',region:'Asia',
+                                    imgRoute:'Asia'})}}>Qatar</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -168,8 +167,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Colombia',region:'America',
-                                    imgRoute:'America'})}}>Colombia</Text>
+                                    country:'S.Korea',region:'Asia',
+                                    imgRoute:'Asia'})}}>S.Korea</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -179,8 +178,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Panama',region:'America',
-                                    imgRoute:'America'})}}>Panamá</Text>
+                                    country:'Thailand',region:'Asia',
+                                    imgRoute:'Asia'})}}>Thailand</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -190,8 +189,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Argentina',region:'America',
-                                    imgRoute:'America'})}}>Argentina</Text>
+                                    country:'Taiwan',region:'Asia',
+                                    imgRoute:'Asia'})}}>Taiwan</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -201,8 +200,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=>{
                                     navigation.navigate("Results",{
-                                    country:'Cuba',region:'America',
-                                    imgRoute:'America'})}}>Cuba</Text>
+                                    country:'Mongolia',region:'Asia',
+                                    imgRoute:'Asia'})}}>Mongolia</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -212,8 +211,8 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=> {
                                     navigation.navigate("Results",{
-                                    country:'Costarica',region:'America',
-                                    imgRoute:'America'})}}>Costarica</Text>
+                                    country:'Yemen',region:'Asia',
+                                    imgRoute:'Asia'})}}>Yemen</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
@@ -223,24 +222,14 @@ const America = ({navigation}) => {
                             <Left>
                                 <Text style={styles.listItem} onPress={()=> {
                                     navigation.navigate("Results",{
-                                    country:'Guatemala',region:'America',
-                                    imgRoute:'America'})}}>Guatemala</Text>
+                                    country:'China',region:'Asia',
+                                    imgRoute:'Asia'})}}>China</Text>
                             </Left>
                             <Right>
                                 <Icon name="arrow-forward" />
                             </Right>
                         </CardItem>
-                        <CardItem >
-                            <Left>
-                                <Text style={styles.listItem} onPress={()=> {
-                                    navigation.navigate("Results",{
-                                    country:'El Salvador',region:'America',
-                                    imgRoute:'America'})}}>El Salvador</Text>
-                            </Left>
-                            <Right>
-                                <Icon name="arrow-forward" />
-                            </Right>
-                        </CardItem>
+                       
                     </Card>
                </Content>
            </Container>
@@ -250,6 +239,8 @@ const America = ({navigation}) => {
   
 
 const styles = StyleSheet.create({
+
+   
     logoApp: {
         width: width,
         height: height * 0.15,
@@ -274,10 +265,13 @@ const styles = StyleSheet.create({
         marginTop:20,
         marginRight:40,
         marginLeft:40,
+        //marginLeft:width*.25,
+        //fontFamily: "FredokaOne-Regular",
         fontSize:10,
     },
     version:{
         marginTop:40,
+        //marginRight:width*.40,
         marginLeft:width*.25,
         fontFamily: "FredokaOne-Regular",
         fontSize:30,
@@ -285,6 +279,7 @@ const styles = StyleSheet.create({
     container: {
         flex:10,
         justifyContent:"center",
+        //alignItems:"center",
         borderRadius: 35,
         backgroundColor:'white',
         paddingBottom:30,
@@ -320,6 +315,11 @@ const styles = StyleSheet.create({
         fontSize: 20,
         marginLeft:width*.05,
     },
+    logoApp: {
+        width: width,
+        height: height * 0.15,
+        resizeMode: "contain",  
+    },
     title:{
         textAlign:"center",
         fontFamily: "FredokaOne-Regular",
@@ -338,4 +338,4 @@ const styles = StyleSheet.create({
     
 
 });
-export default America;
+export default Asia;
