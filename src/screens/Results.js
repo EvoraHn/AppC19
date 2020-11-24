@@ -1,7 +1,7 @@
 import React,{  useState, useEffect} from "react";
-import {StyleSheet,Image,Dimensions} 
+import {StyleSheet,Image,Dimensions}
 from "react-native";
-import {Container,Text,Left, Right,Content,Card,CardItem,Spinner}
+import {Container,Text,Left, Right,Content,Card,CardItem,Spinner, Form}
 from "native-base"
 import{useFonts,Raleway_200ExtraLight}
 from "@expo-google-fonts/raleway";
@@ -12,8 +12,15 @@ const { width, height } = Dimensions.get("window");
 //Librerias de conexion
 import backend from "../api/backend";
 
+//importar el kit de gráficos React Native para diferentes tipos de gráficos
+import {
+    LineChart
+} from 'react-native-chart-kit';
 
 const Results = ({route,navigation}) => {
+
+    
+
     //maneja el estado de la informacion de covid en las peticiones
 <<<<<<< HEAD
     const [casosEnElMundo, setcasosEnElMundo] = useState(null);
@@ -37,14 +44,20 @@ const Results = ({route,navigation}) => {
 
     const [totalPruebasPorCovid, settotalPruebasPorCovid] = useState(null);
    
+<<<<<<< HEAD
      //const [errorConsultaRecuperados, seterrorConsultaRecuperados] = useState(false); //variable para el estado del try catch
+>>>>>>> Ariel
+=======
+     
 >>>>>>> Ariel
     const [errorConsulta, seterrorConsulta] = useState(false); //variable para el estado del try catch
 
     //variables de la pantalla Dinamica
+
+    // Obtener desde los parámetros de la navegación el término de búsqueda
     const {country} = route.params;
     const {region} = route.params;
-    const {imgRoute} = route.params;
+    //const {imgRoute} = route.params;
   
         //fuentes de origen externo
         let [fontsLoaded,error] = useFonts({
@@ -180,7 +193,7 @@ const Results = ({route,navigation}) => {
 >>>>>>> Ariel
             return (
               <Content>
-                <Spinner/>
+                <Spinner color="purple"/>
               </Content>
             )
           }
@@ -191,21 +204,21 @@ const Results = ({route,navigation}) => {
         if (!casosPorCovid) {
             return (
               <Content>
-                <Spinner/>
+                <Spinner color="purple"/>
               </Content>
             )
           }
           if (!muertesPorCovid) {
             return (
               <Content>
-                <Spinner/>
+                <Spinner color="purple"/>
               </Content>
             )
           }
           if (!recuperadosPorCovid) {
             return (
               <Content>
-                <Spinner/>
+                <Spinner color="purple"/>
               </Content>
             )
           }
@@ -214,7 +227,7 @@ const Results = ({route,navigation}) => {
 >>>>>>> Ariel
             return (
               <Content>
-                <Spinner/>
+                <Spinner color="purple"/>
               </Content>
             )
           }
@@ -225,7 +238,7 @@ const Results = ({route,navigation}) => {
 >>>>>>> Ariel
             return (
               <Content>
-                <Spinner/>
+                <Spinner color="purple"/>
               </Content>
             )
           }
@@ -244,7 +257,7 @@ const Results = ({route,navigation}) => {
                 </Left>   
                 
                 <Right>
-                    <Image source={require('../img/america.png')}
+                    <Image source={require("../img/CovidResult.png")}
                      transparent style={styles.linkImage} />
                 </Right>
             </CardItem>
@@ -345,6 +358,48 @@ const Results = ({route,navigation}) => {
                         </CardItem>
 >>>>>>> Ariel
                     </Card>
+
+                    
+                    <Text style={styles.header}>Charts</Text>
+                    <LineChart style={{alignContent:"center"}}
+                        data={{
+                        labels: ['T.C.', 'I', 'R', 'D', 'C', 'T.T.'],
+                        datasets: [
+                            {
+                            data: [
+                                casosDeHoyPorCovid[0].data,
+                                casosPorCovid[0].data,
+                                recuperadosPorCovid[0].data,
+                                muertesPorCovid[0].data,
+                                criticosPorCovid[0].data,
+                                totalPruebasPorCovid[0].data,
+                            ],
+                            color: (opacity = 1) => `rgba(116, 0, 184, ${opacity})`,
+                            },
+                        ],
+                        }}
+                        width={Dimensions.get('window').width - 16}
+                        height={220}
+                        yAxisLabel={' '}
+                        chartConfig={{
+                        backgroundColor: '#FFFFFF',
+                        backgroundGradientFrom: '#FFFFFF',
+                        backgroundGradientTo: '#FFFFFF',
+                        fromZero: true,
+                        decimalPlaces: 2, // optional, defaults to 2dp
+                        color: (opacity = 255) => `rgba(0, 0, 0, ${opacity})`,
+                        style: {
+                            borderRadius: 16,
+                        },
+                        }}
+                        bezier
+                        style={{
+                        marginVertical: 8,
+                        borderRadius: 16,
+                        }}
+                    />
+
+
                </Content>
 
            </Container>
@@ -376,6 +431,7 @@ const Results = ({route,navigation}) => {
   //<Elemento style={{styles.container> </Elemento>}}
 const styles = StyleSheet.create({
     container: {
+        paddingLeft:20,
         flex:1,
         justifyContent:"center",
         borderRadius: 35,
@@ -383,6 +439,13 @@ const styles = StyleSheet.create({
         marginBottom: height*0.001,
         paddingBottom:height*0.04,
     },
+    header: {
+        textAlign: 'center',
+        padding: 16,
+        marginTop: 16,
+        fontFamily: "FredokaOne-Regular",
+        fontSize: 20,
+      },
     containerPrincipal: {
         flex:1,
         paddingTop:height*0.04,
@@ -391,15 +454,15 @@ const styles = StyleSheet.create({
     },
     linkImage:{
         width: width * .30,
-        height: height * .1,
+        height: height *.1,
         resizeMode: "contain",
-        marginLeft: width*0.055,
+        
     },
     title:{
         textAlign:"center",
         fontFamily: "FredokaOne-Regular",
         //fontSize: height*.069,
-        fontSize: 50,
+        fontSize: width*0.11,
         color:'#FFF',
     },
     titleTable:{

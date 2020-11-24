@@ -1,6 +1,6 @@
 import React from "react";
 import {StyleSheet,Image,Dimensions} from "react-native";
-import {Container,Button, Text,Body,Col, Row,Right,Grid,Content,Card,CardItem, Left}
+import {Container,Button, Text,Body,Content,Card,CardItem, Left}
 from "native-base"
 import{useFonts,Raleway_200ExtraLight} from "@expo-google-fonts/raleway";
 import { AppLoading } from "expo";
@@ -58,15 +58,7 @@ const About = ({navigation}) => {
                 </CardItem>
                 </Card>
 
-                <Card transparent >
-                <CardItem style={styles.card}>
-                    <Button transparent 
-                    onPress={()=> {navigation.navigate("Home")}}>
-                    <Image source={require('../img/homeOscuro.png')}
-                        transparent style={styles.linkImage} />
-                    </Button>
-                </CardItem>
-                </Card>
+                
             </CardItem>
 
            
@@ -110,10 +102,11 @@ const About = ({navigation}) => {
 const styles = StyleSheet.create({
     container: {
         flex:8,
-        paddingTop:40,
+        paddingTop:30,
         justifyContent:"center",
         borderRadius: 35,
         backgroundColor:'white',
+        paddingBottom:30
         //marginBottom: height*0.000001,
         //paddingBottom:height*0.000001,
     },

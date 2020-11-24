@@ -1,8 +1,8 @@
 import React from "react";
 import {StyleSheet,Image,Dimensions} 
 from "react-native";
-import {Container,Icon,Button,Text,Body,Left,Right,
-    Col,Row,Grid,Content,Card,CardItem,}
+import {Container,Icon,Button,Text,Left,Right,
+    Content,Card,CardItem,}
 from "native-base"
 import{useFonts,Raleway_200ExtraLight}
 from "@expo-google-fonts/raleway";
