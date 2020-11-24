@@ -22,16 +22,6 @@ const Results = ({route,navigation}) => {
     
 
     //maneja el estado de la informacion de covid en las peticiones
-<<<<<<< HEAD
-    const [casosEnElMundo, setcasosEnElMundo] = useState(null);
-    
-    const [muertesEnElMundo, setmuertesEnElMundo] = useState(null);
-    //const [errorConsultaMuertes, seterrorConsultaMuertes] = useState(false); //variable para el estado del try catch
-
-    const [recuperadosEnElMundo, setrecuperadosEnElMundo] = useState(null);
-    //const [errorConsultaRecuperados, seterrorConsultaRecuperados] = useState(false); //variable para el estado del try catch
-
-=======
     const [casosDeHoyPorCovid, setcasosDeHoyPorCovid] = useState(null);
 
     const [casosPorCovid, setcasosPorCovid] = useState(null);
@@ -44,12 +34,7 @@ const Results = ({route,navigation}) => {
 
     const [totalPruebasPorCovid, settotalPruebasPorCovid] = useState(null);
    
-<<<<<<< HEAD
-     //const [errorConsultaRecuperados, seterrorConsultaRecuperados] = useState(false); //variable para el estado del try catch
->>>>>>> Ariel
-=======
      
->>>>>>> Ariel
     const [errorConsulta, seterrorConsulta] = useState(false); //variable para el estado del try catch
 
     //variables de la pantalla Dinamica
@@ -67,12 +52,6 @@ const Results = ({route,navigation}) => {
       
     ///=================================== consultas =====================================
 
-<<<<<<< HEAD
-    //Peticiones ------ Casos EN EL MUNDO -------
-        
-        // Las peticiones se hacen mediante funciones asincronas(cualquier momento)
-        const getcasosEnElMundo = async () => {
-=======
     //Peticiones ------ CASOS de HOY -------
         
         // Las peticiones se hacen mediante funciones asincronas(cualquier momento)
@@ -94,29 +73,17 @@ const Results = ({route,navigation}) => {
         
         // Las peticiones se hacen mediante funciones asincronas(cualquier momento)
         const getcasosPorCovid = async () => {
->>>>>>> Ariel
             try {
                 //Consultar a la API de Covid19
                 //nuestros valores para este backend Traer la información de el mundo
                 const response = await backend.get(`cases?country=${country}`); 
                 // aqui la variable de estado ya recibio los valores de la peticion
-<<<<<<< HEAD
-                setcasosEnElMundo(response.data);        
-=======
                 setcasosPorCovid(response.data);        
->>>>>>> Ariel
             } catch (errorConsulta) {
                 //errorConsulta al momento de ejecutar la peticion
                 seterrorConsulta(true);
             }
         };
-<<<<<<< HEAD
-        
-        const getmuertesEnElMundo = async () => {
-            try {
-                const response = await backend.get(`deaths?country=${country}`); 
-                setmuertesEnElMundo(response.data);    
-=======
 
           //Peticiones ------MUERTES -------
         
@@ -124,18 +91,11 @@ const Results = ({route,navigation}) => {
             try {
                 const response = await backend.get(`deaths?country=${country}`); 
                 setmuertesPorCovid(response.data);    
->>>>>>> Ariel
             } catch (errorConsulta) {
                 seterrorConsulta(true);
             }
         };
 
-<<<<<<< HEAD
-        const getrecuperadosEnElMundo = async () => {
-            try {
-                const response = await backend.get(`recovered?country=${country}`); 
-                setrecuperadosEnElMundo(response.data);     
-=======
           //Peticiones ------ Recuperados -------
         const getrecuperadosPorCovid = async () => {
             try {
@@ -162,7 +122,6 @@ const Results = ({route,navigation}) => {
             try {
                 const response = await backend.get(`critical?country=${country}`); 
                 settotalPruebasPorCovid(response.data);     
->>>>>>> Ariel
             } catch (errorConsulta) {
                 seterrorConsulta(true);
             }
@@ -170,36 +129,23 @@ const Results = ({route,navigation}) => {
 
                 // Efecto secundario que ejecuta la consulta a la API
         useEffect(() => {
-<<<<<<< HEAD
-            getcasosEnElMundo();
-            getmuertesEnElMundo();
-            getrecuperadosEnElMundo();
-=======
             getcasosDeHoyPorCovid();
             getcasosPorCovid();
             getmuertesPorCovid();
             getrecuperadosPorCovid();
             getcriticosPorCovid();
             gettotalPruebasPorCovid();
->>>>>>> Ariel
         }, []);
 
         //los componentes se renderizan antes de ser mostrados y nunca
         //deben retornar null
-<<<<<<< HEAD
-        if (!casosEnElMundo) {
-=======
         if (!casosDeHoyPorCovid) {
->>>>>>> Ariel
             return (
               <Content>
                 <Spinner color="purple"/>
               </Content>
             )
           }
-<<<<<<< HEAD
-          if (!muertesEnElMundo) {
-=======
 
         if (!casosPorCovid) {
             return (
@@ -224,28 +170,20 @@ const Results = ({route,navigation}) => {
           }
 
           if (!criticosPorCovid) {
->>>>>>> Ariel
             return (
               <Content>
                 <Spinner color="purple"/>
               </Content>
             )
           }
-<<<<<<< HEAD
-          if (!recuperadosEnElMundo) {
-=======
           if (!totalPruebasPorCovid) {
->>>>>>> Ariel
             return (
               <Content>
                 <Spinner color="purple"/>
               </Content>
             )
           }
-<<<<<<< HEAD
-=======
  
->>>>>>> Ariel
         if (!fontsLoaded){
             return <AppLoading/>
         }
@@ -275,8 +213,6 @@ const Results = ({route,navigation}) => {
                <Content>
                     <Card transparent>
                         <CardItem >
-<<<<<<< HEAD
-=======
                             <Left>
                                 <Text style={styles.listItem}>Today Cases</Text>
                             </Left>
@@ -288,18 +224,13 @@ const Results = ({route,navigation}) => {
                         </CardItem>
 
                         <CardItem >
->>>>>>> Ariel
                             <Left>
                                 <Text style={styles.listItem}>Infecteds</Text>
                             </Left>
                         </CardItem>
                         <CardItem >
                             <Left>
-<<<<<<< HEAD
-                                <Text>{casosEnElMundo[0].data}</Text>
-=======
                                 <Text>{casosPorCovid[0].data}</Text>
->>>>>>> Ariel
                             </Left>
                         </CardItem>
 
@@ -310,11 +241,7 @@ const Results = ({route,navigation}) => {
                         </CardItem>
                         <CardItem >
                             <Left>
-<<<<<<< HEAD
-                                <Text>{recuperadosEnElMundo[0].data}</Text>
-=======
                                 <Text>{recuperadosPorCovid[0].data}</Text>
->>>>>>> Ariel
                             </Left>
                         </CardItem>
                         <CardItem >
@@ -324,12 +251,6 @@ const Results = ({route,navigation}) => {
                         </CardItem>
                         <CardItem >
                             <Left>
-<<<<<<< HEAD
-                                <Text>{muertesEnElMundo[0].data}</Text>
-                                
-                            </Left> 
-                        </CardItem>
-=======
                                 <Text>{muertesPorCovid[0].data}</Text>
                                 
                             </Left> 
@@ -356,7 +277,6 @@ const Results = ({route,navigation}) => {
                                 
                             </Left> 
                         </CardItem>
->>>>>>> Ariel
                     </Card>
 
                     
@@ -418,13 +338,8 @@ const Results = ({route,navigation}) => {
         </Container>
       );
   };
-<<<<<<< HEAD
 
 
-=======
-
-
->>>>>>> Ariel
   //Aqui va la hoja de estilos, cualquier elemento linkeado aquí
   //se verá afectado por las propiedades contenidas
   //para linkear "en cualquier elemento"
